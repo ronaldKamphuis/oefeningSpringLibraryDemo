@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/library.css" />
+    <title>Voeg een partij toe</title>
+</head>
+<body>
+    <h1>Voeg een partij toe</h1>
+    <form th:action="@{/partijen/toevoegen}" th:object="${partij}" method="post">
+        <p>Titel: <input type="text" th:field="*{titel}" /></p>
+        <p>
+            Artiest:
+            <select th:field="*{artiest}">
+                <option th:each="artiest: ${alleArtiesten}" th:value="${artiest.artiestId}" th:text="${artiest.naam}"></option>
+            </select>
+        </p>
+        <p><input type="submit" value="Verzend" /></p>
+    </form>
+</body>
+</html>

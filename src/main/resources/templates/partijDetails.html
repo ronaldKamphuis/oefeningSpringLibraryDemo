@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/library.css" />
+    <title th:text="@{${partij.titel} + ' overzicht'}">Exemplaar overzicht</title>
+</head>
+<body>
+    <h1><span th:text="${partij.titel}"/>Details</h1>
+    <table>
+        <tr>
+            <td>Titel</td>
+            <td th:text="${partij.titel}"> </td>
+        </tr>
+        <tr>
+            <td>Artiest</td>
+            <td th:text="${partij.artiest.naam}"></td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

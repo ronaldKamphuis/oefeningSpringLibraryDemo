@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/library.css" />
+    <title>Overzicht van transcripties</title>
+</head>
+<body>
+    <h1>Transcripties</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Titel</th>
+            <th>Artiest</th>
+            <th>Prijs &euro;</th>
+            <th># Exemplaren</th>
+            <th>Toevoegen</th>
+        </tr>
+        <tr th:each="partij: ${allePartijen}">
+            <td th:text="${partij.partijId}" />
+            <td th:text="${partij.titel}" />
+            <td th:text="${partij.artiest.naam}" />
+            <td></td>
+            <td th:text="${partij.aantalExemplaren}" />
+            <td><a th:href="@{exemplaar/toevoegen/p/{partijTitel}(partijTitel=${partij.titel})}">Toevoegen</a></td>
+        </tr>
+    </table>
+    <p>
+        <a th:href="@{/partijen/toevoegen}">Voeg partij toe</a>
+    </p>
+    <p>
+        <a th:href="@{/artiesten}">Artiesten overzicht</a>
+    </p>
+
+</body>
+</html>

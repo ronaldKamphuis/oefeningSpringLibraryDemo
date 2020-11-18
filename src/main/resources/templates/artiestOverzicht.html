@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/library.css" />
+    <title>Artiest overzicht</title>
+</head>
+<body>
+<h1>Overzicht van artiesten</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Naam</th>
+        <th># Partijen</th>
+    </tr>
+    <tr th:each="artiest: ${alleArtiesten}">
+        <td th:text="${artiest.artiestId}" />
+        <td th:text="${artiest.naam}" />
+        <td th:text="${artiest.aantalPartijen}" />
+    </tr>
+</table>
+<br>
+<h1>Voeg een artiest toe</h1>
+<form th:action="@{/artiest/toevoegen}" th:object="${artiest}" method="post">
+    <p>Titel: <input type="text" th:field="*{naam}" /></p>
+    <p><input type="submit" value="Verzend" /></p>
+</form>
+<p>
+    <a th:href="@{/partijen}">Overzicht van alle partijen</a>
+</p>
+</body>
+</html>
