@@ -9,12 +9,17 @@
 <body>
     <h1>Voeg een partij toe</h1>
     <form th:action="@{/partijen/toevoegen}" th:object="${partij}" method="post">
-        <p>Titel: <input type="text" th:field="*{titel}" /></p>
+        <p>
+            Titel: <input type="text" th:field="*{titel}" />
+        </p>
         <p>
             Artiest:
             <select th:field="*{artiest}">
                 <option th:each="artiest: ${alleArtiesten}" th:value="${artiest.artiestId}" th:text="${artiest.naam}"></option>
             </select>
+        </p>
+        <p>
+            Prijs van deze transcriptie: <input type="text" th:field="*{prijs}" />
         </p>
         <p><input type="submit" value="Verzend" /></p>
     </form>
