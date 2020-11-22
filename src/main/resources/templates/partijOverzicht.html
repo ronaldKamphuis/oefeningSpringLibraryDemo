@@ -19,11 +19,13 @@
         </tr>
         <tr th:each="partij: ${allePartijen}">
             <td th:text="${partij.partijId}" />
-            <td th:text="${partij.titel}" />
+            <td><a th:href="@{/partij/{partijTitel}(partijTitel=${partij.titel})}" th:text="${partij.titel}" /></td>
             <td th:text="${partij.artiest.naam}" />
-            <td></td>
+            <td th:text="${partij.prijs}" />
             <td th:text="${partij.aantalExemplaren}" />
             <td><a th:href="@{exemplaar/toevoegen/p/{partijTitel}(partijTitel=${partij.titel})}">Toevoegen</a></td>
+            <td><a th:href="@{exemplaar/toevoegen/p/{partijTitel}(partijTitel=${partij.titel})}">Verwijderen</a></td>
+
         </tr>
     </table>
     <p>

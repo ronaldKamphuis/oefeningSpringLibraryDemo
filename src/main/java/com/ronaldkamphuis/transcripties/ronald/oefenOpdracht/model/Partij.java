@@ -21,6 +21,8 @@ public class Partij {
 
     private String titel;
 
+    private Double prijs;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "artiestId", referencedColumnName = "artiestId", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -55,5 +57,13 @@ public class Partij {
 
     public void setArtiest(Artiest artiest) {
         this.artiest = artiest;
+    }
+
+    public Double getPrijs() {
+        return prijs;
+    }
+
+    public void setPrijs(Double prijs) {
+        this.prijs = prijs;
     }
 }

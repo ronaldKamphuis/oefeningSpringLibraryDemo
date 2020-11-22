@@ -7,7 +7,7 @@
     <title th:text="@{${partij.titel} + ' overzicht'}">Exemplaar overzicht</title>
 </head>
 <body>
-    <h1><span th:text="${partij.titel}"/>Details</h1>
+    <h1><span th:text="${partij.titel}"/> - Voorbeeld</h1>
     <table>
         <tr>
             <td>Titel</td>
@@ -18,6 +18,10 @@
             <td th:text="${partij.artiest.naam}"></td>
         </tr>
     </table>
+
+    <p>
+        <a th:href="@{/partijen}">Overzicht van alle partijen</a>
+    </p>
 
 
 </body>
