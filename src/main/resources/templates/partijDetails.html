@@ -17,8 +17,15 @@
             <td>Artiest</td>
             <td th:text="${partij.artiest.naam}"></td>
         </tr>
+        <tr>
+            <td>Prijs transcriptie &euro;:</td>
+            <td th:text="${partij.prijs}"></td>
+        </tr>
     </table>
-
+    <p>Voorbeeld van eerste pagina transcriptie:</p>
+    <p align="center">
+        <img th:src="@{${'/img/' + partijTitel + '.jpg'}}" width=50% align=center alt="Voorbeeld van transcriptie"/>
+    </p>
     <p>
         <a th:href="@{/partijen}">Overzicht van alle partijen</a>
     </p>
