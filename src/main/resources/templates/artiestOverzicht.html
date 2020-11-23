@@ -23,7 +23,7 @@
 <br>
 <h1>Voeg een artiest toe</h1>
 <form th:action="@{/artiest/toevoegen}" th:object="${artiest}" method="post">
-    <p>Titel: <input type="text" th:field="*{naam}" /></p>
+    <p>Naam artiest: <input type="text" th:field="*{naam}" /></p>
     <p><input type="submit" value="Verzend" /></p>
 </form>
 <p>
