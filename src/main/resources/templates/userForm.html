@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/library.css" />
+    <title>Gebruikers toevoegen</title>
+</head>
+<body>
+<h1>Voeg een Gebruiker toe</h1>
+<form th:action="@{/user/new}" th:object="${user}" method="post">
+    <p>Gebruikersnaam: <input type="text" th:field="*{username}" /></p>
+    <p>Wachtwoord: <input type="password" th:field="*{password}" /></p>
+    <p><input type="submit" value="Voeg toe" /> <input type="reset" value="Annuleer" /></p>
+</form>
+</body>
+</html>
