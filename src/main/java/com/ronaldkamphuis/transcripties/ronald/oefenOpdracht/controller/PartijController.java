@@ -7,11 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -60,5 +59,18 @@ public class PartijController {
             partijRepository.save(partij);
             return "redirect:/partijen";
         }
+    }
+
+    @PostMapping("/uploadImage")
+    public String uploadImage(@RequestParam("imageFile") MultipartFile imageFile) {
+        String returnValue = "partijOverzicht";
+
+        try {
+            partijRepository.saveImage(imageFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            returnValue = "Er is iets fout gegaan";
+        }
+        return returnValue;
     }
 }
