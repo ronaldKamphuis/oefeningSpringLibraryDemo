@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/library.css" />
@@ -28,9 +29,9 @@
 
         </tr>
     </table>
-    <p><a th:href="@{/partijen/toevoegen}">Voeg partij toe</a></p>
+    <p sec:authorize="hasRole('ADMIN')"><a th:href="@{/partijen/toevoegen}">Voeg partij toe</a></p>
     <p><a th:href="@{/artiesten}">Artiesten overzicht</a></p>
-    <p><a th:href="@{/user/new}">Voeg Gebruiker toe</a></p>
+    <p sec:authorize="hasRole('ADMIN')"><a th:href="@{/user/new}">Voeg Gebruiker toe</a></p>
     <p><a th:href="@{/logout}">Log uit</a></p>
 </body>
 </html>
