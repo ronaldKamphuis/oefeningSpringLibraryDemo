@@ -21,7 +21,10 @@
         <p>
             Prijs van deze transcriptie &euro;: <input type="text" th:field="*{prijs}" />
         </p>
-
+        <p>
+            <form method="post" enctype="multipart/form-data" action="/uploadImage"> <!-- Thymeleaf DB connectie toevoegen? -->
+            <input type="file" name="imageFile"/>
+        </p>
         <p><input type="submit" value="Verzend" /></p>
     </form>
 </body>
