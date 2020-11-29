@@ -7,7 +7,10 @@
     <title>Voeg een partij toe</title>
 </head>
 <body>
-    <h1>Voeg een partij toe</h1>
+    <div id="paginaTitel">
+        <h1>Voeg een partij toe</h1>
+    </div>
+    <div id="tabel">
     <form th:action="@{/partijen/toevoegen}" th:object="${partij}" method="post">
         <p>
             Titel: <input type="text" th:field="*{titel}" />
@@ -27,5 +30,6 @@
         </p>
         <p><input type="submit" value="Verzend" /></p>
     </form>
+    </div>
 </body>
 </html>
