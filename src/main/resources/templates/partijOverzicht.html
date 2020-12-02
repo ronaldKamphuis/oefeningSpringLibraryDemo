@@ -29,17 +29,18 @@
                 <td th:text="${partij.prijs}" />
                 <td th:text="${partij.aantalExemplaren}" />
                 <td><a th:href="@{exemplaar/toevoegen/p/{partijTitel}(partijTitel=${partij.titel})}">Toevoegen</a></td>
-                <td><a th:href="@{exemplaar/toevoegen/p/{partijTitel}(partijTitel=${partij.titel})}">Verwijderen</a></td>
+                <td><a th:href="@{exemplaar/verwijderen/p/{partijTitel}(partijTitel=${partij.titel})}">Verwijderen</a></td>
 
             </tr>
         </table>
     </div>
     <div id="knoppen">
         <p>
-        <button sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-outline-primary"><a th:href="@{/partijen/toevoegen}">Voeg partij toe</a></button>
-        <a th:href="@{/artiesten}"><button type="button" class="btn btn-outline-primary">Artiesten overzicht</button></a>
-        <button sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-outline-primary"><a th:href="@{/user/new}">Voeg Gebruiker toe</a></button>
-        <a th:href="@{/logout}"><button type="button" class="btn btn-primary">Log uit</button></a>
+            <a href="uploadForm.html">Test partijUpload</a>
+            <a th:href="@{/partijen/toevoegen}"><button sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-outline-primary">Voeg partij toe</button></a>
+            <a th:href="@{/artiesten}"><button type="button" class="btn btn-outline-primary">Artiesten overzicht</button></a>
+            <a th:href="@{/user/new}"><button sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-outline-primary">Voeg Gebruiker toe</button></a>
+            <a th:href="@{/logout}"><button type="button" class="btn btn-primary">Log uit</button></a>
         </p>
     </div>
 </body>

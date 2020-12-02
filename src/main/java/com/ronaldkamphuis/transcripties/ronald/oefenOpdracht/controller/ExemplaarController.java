@@ -2,7 +2,6 @@ package com.ronaldkamphuis.transcripties.ronald.oefenOpdracht.controller;
 
 import com.ronaldkamphuis.transcripties.ronald.oefenOpdracht.model.Exemplaar;
 import com.ronaldkamphuis.transcripties.ronald.oefenOpdracht.model.Partij;
-import com.ronaldkamphuis.transcripties.ronald.oefenOpdracht.repository.ArtiestRepository;
 import com.ronaldkamphuis.transcripties.ronald.oefenOpdracht.repository.ExemplaarRepository;
 import com.ronaldkamphuis.transcripties.ronald.oefenOpdracht.repository.PartijRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,4 +47,22 @@ public class ExemplaarController {
         }
         return "redirect:/partijen";
     }
+
+    @GetMapping("/exemplaar/verwijderen/p/{partijTitel}")
+    protected String verwijderExemplaarPerTitel(@PathVariable("partijTitel") String partijTitel) {
+        System.out.println("Verwijder partij");
+        Optional<Partij> partijMap = partijRepository.findByTitel(partijTitel);
+        Exemplaar exemplaar = new Exemplaar();
+        exemplaar.setPartij((partijMap.get()));
+        exemplaarRepository.delete(exemplaar);
+        System.out.println("Einde verwijder methode");
+        return "redirect:/partijen";
+    }
+//        if (partijMap.isPresent()) {
+//            Exemplaar exemplaar = new Exemplaar();
+//            exemplaar.setPartij((partijMap.get()));
+//            exemplaarRepository.delete(exemplaar);
+//        }
+//        return "redirect:/partijen";
 }
+
