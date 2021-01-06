@@ -18,9 +18,7 @@ public class Partij {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer partijId;
-
     private String titel;
-
     private Double prijs;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

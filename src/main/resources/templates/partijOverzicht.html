@@ -36,7 +36,7 @@
     </div>
     <div id="knoppen">
         <p>
-            <a href="uploadForm.html">Test partijUpload</a>
+            <a th:href="@{/files}">Test partijUpload</a>
             <a th:href="@{/partijen/toevoegen}"><button sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-outline-primary">Voeg partij toe</button></a>
             <a th:href="@{/artiesten}"><button type="button" class="btn btn-outline-primary">Artiesten overzicht</button></a>
             <a th:href="@{/user/new}"><button sec:authorize="hasRole('ADMIN')" type="button" class="btn btn-outline-primary">Voeg Gebruiker toe</button></a>
